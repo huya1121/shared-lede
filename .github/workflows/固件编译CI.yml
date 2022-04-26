@@ -19,7 +19,7 @@ on:
       model:
         description: '选择机型'
         required: true
-        default: 'redmi-router-ac2100' 
+        default: 'mi-router-4a-gigabit' 
         type: choice
         options:
         - mi-router-4a-gigabit
