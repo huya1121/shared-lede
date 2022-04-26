@@ -27,7 +27,7 @@ sed -i 's/OpenWrt/RMWiFi/g' package/kernel/mac80211/files/lib/wifi/mac80211.sh
 #sed -i 's/wireless.default_radio${devidx}.encryption=none/wireless.default_radio${devidx}.encryption=psk-mixed/g' package/kernel/mac80211/files/lib/wifi/mac80211.sh
 sed -i '/encryption/a\set wireless.default_radio${devidx}.key=coolxiaomi' package/kernel/mac80211/files/lib/wifi/mac80211.sh
 #修改登录密码为password
-#sed -i '/root/croot:$1$UAJmZKcZ$ZNRtgCPfHkWum/h4Ioa7N1:18676:0:99999:7:::' package/base-files/files/etc/shadow
+sed -i '/root/croot:$1$UAJmZKcZ$ZNRtgCPfHkWum/h4Ioa7N1:18676:0:99999:7:::' package/base-files/files/etc/shadow
 #切换ramips内核到5.15
 #sed -i '/KERNEL_PATCHVER/cKERNEL_PATCHVER:=5.15' target/linux/ramips/Makefile
 
