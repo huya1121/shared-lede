@@ -1,8 +1,8 @@
 #!/bin/sh
 #修改登录IP
-sed -i 's/192.168.1.1/192.168.31.1/g' package/base-files/files/bin/config_generate
+sed -i 's/192.168.1.1/10.0.0.1/g' package/base-files/files/bin/config_generate
 #修改主机名
-sed -i 's/OpenWrt/Xiaomi-Router/g' package/base-files/files/bin/config_generate
+sed -i 's/OpenWrt/MI4-Router/g' package/base-files/files/bin/config_generate
 #删除自带低版本xray-core
 rm -rf feeds/packages/net/xray-core
 rm -rf package/feeds/packages/xray-core
@@ -12,7 +12,7 @@ cp -f uci-scripts/* files/etc/uci-defaults
 #复制内核5.10版本CPU超频补丁
 #\cp -rf extra-files/322-mt7621-fix-cpu-clk-add-clkdev.patch target/linux/ramips/patches-5.10/322-mt7621-fix-cpu-clk-add-clkdev.patch
 #设置WIFI
-#sed -i 's/OpenWrt/coolxiaomi/g' package/kernel/mac80211/files/lib/wifi/mac80211.sh
+sed -i 's/OpenWrt/MI4WIFI/g' package/kernel/mac80211/files/lib/wifi/mac80211.sh
 #sed -i 's/wireless.default_radio${devidx}.encryption=none/wireless.default_radio${devidx}.encryption=psk-mixed/g' package/kernel/mac80211/files/lib/wifi/mac80211.sh
 #sed -i '/encryption/a\set wireless.default_radio${devidx}.key=coolxiaomi' package/kernel/mac80211/files/lib/wifi/mac80211.sh
 #修改登录密码为coolxiaomi
@@ -24,3 +24,12 @@ cp -f uci-scripts/* files/etc/uci-defaults
 sed -i '/DISTRIB_/d' package/default-settings/files/zzz-default-settings
 sed -i '/footer.htm/d' package/default-settings/files/zzz-default-settings
 sed -i '/admin_status/d' package/default-settings/files/zzz-default-settings
+
+#修改默认最大连接数
+echo "net.netfilter.nf_conntrack_max=65535" >> package/base-files/files/etc/sysctl.d/10-default.conf
+
+#修改NTP服务器
+sed -i 's/0.openwrt.pool.ntp.org/ntp.aliyun.com/g' package/base-files/files/bin/config_generate
+sed -i 's/1.openwrt.pool.ntp.org/time1.cloud.tencent.com/g' package/base-files/files/bin/config_generate
+sed -i 's/2.openwrt.pool.ntp.org/time.ustc.edu.cn/g' package/base-files/files/bin/config_generate
+sed -i 's/3.openwrt.pool.ntp.org/cn.pool.ntp.org/g' package/base-files/files/bin/config_generate
