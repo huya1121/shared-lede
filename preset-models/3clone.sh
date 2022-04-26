@@ -17,6 +17,6 @@ git clone -b luci --single-branch https://github.com/xiaorouji/openwrt-passwall.
 git clone https://github.com/xiaorouji/openwrt-passwall2.git
 git clone https://github.com/messense/aliyundrive-webdav.git
 git clone https://github.com/tty228/luci-app-serverchan.git
-git clone https://github.com/mwarning/zerotier-openwrt.git
-cp -rf zerotier-openwrt/zerotier .
-rm -rf zerotier-openwrt/
+#git clone https://github.com/mwarning/zerotier-openwrt.git
+#cp -rf zerotier-openwrt/zerotier .
+#rm -rf zerotier-openwrt/
