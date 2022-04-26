@@ -53,7 +53,7 @@ zh_title=小米3G openwrt固件
 release_title=openwrt for xiaomi 4
 zh_title=小米4 openwrt固件
 版本：lienol openwrt源码，master分支
-登陆IP 192.168.31.1，密码无
+登陆IP 10.0.0.1，密码无
 应用：ipv6支持组件、argon主题、定时重启、nat6助手等。
 # end of 2-4 model firmware
 -----------------------------------------------------------------------------------------
